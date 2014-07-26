@@ -1,0 +1,5 @@
+<link href="/components/editor/editor.css" rel="stylesheet" type="text/css"/>
+<div ng-controller='EditorCtrl' class="editor">
+	<div ui-ace='myEditor' ng-model='myCode'></div>
+	<select ng-model='mode' ng-options='m for m in modes' ng-change="modeChanged()"></select>
+</div>

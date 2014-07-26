@@ -1,0 +1,18 @@
+.treeStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 600px; 
+    height: 1500px
+}
+
+.json {
+    background-color: #aeaeae;
+    border: 1px solid rgb(212,212,212);
+    width: 600px; 
+    height: 1500px;
+    display:block;
+    float:right;
+    position:absolute;
+    right:0;
+    top:0;
+}
+	

@@ -1,0 +1,34 @@
+<link href="/components/tree/tree.css" rel="stylesheet" type="text/css"/>
+<div ng-controller='TreeCtrl' class="treeStyle" ng-mouseover="hover(this)">
+	<div ui-tree ng-mouseover="hover(this)">
+		<ol ui-tree-nodes="" ng-model="theOutline.modules">
+			<li ng-repeat="module in theOutline.modules" ui-tree-node ng-dblclick="editX(this)">
+				<div ui-tree-handle ng-dblclick="editX(this)">
+                  <a class="btn btn-success btn-xs" data-nodrag ng-click="expcoll(this)"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+                  <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span class="glyphicon glyphicon-remove"></span></a>
+                  <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
+					{{module.title}}
+					<ol ui-tree-nodes="" ng-model="module.modules">
+						<li ng-repeat="subModule in module.modules" ui-tree-node ng-dblclick="editX(this)">
+							<div ui-tree-handle ng-dblclick="editX(this)">
+                  <a class="btn btn-success btn-xs" data-nodrag ng-click="expcoll(this)"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+                  <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span class="glyphicon glyphicon-remove"></span></a>
+                  <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
+								{{subModule.title}}
+								<ol ui-tree-nodes="" ng-model="subModule.modules">
+									<li ng-repeat="subSubModule in subModule.modules" ui-tree-node ng-dblclick="editX(this)">
+                  <a class="btn btn-success btn-xs" data-nodrag ng-click="expcoll(this)"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+                  <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span class="glyphicon glyphicon-remove"></span></a>
+                  <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
+										{{subSubModule.title}}
+									</li>
+								</ol>
+							</div>
+						</li>
+					</ol>
+				</div>
+			</li>
+		</ol>
+	</div>
+	<div ui-ace="outlineEditor" id="json" class="json" ng-model="jsonData" ng-mouseover="hover(this)"></div>
+</div>
